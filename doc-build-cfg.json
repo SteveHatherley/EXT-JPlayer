@@ -1,0 +1,13 @@
+/* 
+ * Documentation build config for JSDUCK
+ */
+{
+    "--title": "Ext JPlayer Documentation",
+    "--warnings": ["-link", "-no_doc", "-dup_member","-link_ambiguous"], 
+    "--seo": true,
+    "--": [
+        "builds/",
+        "trunk/core",
+		"trunk/ux/"
+    ]
+}

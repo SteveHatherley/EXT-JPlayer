@@ -1,0 +1,67 @@
+{
+        "projectName": "EXT JPlayer",
+        "includeDeps": true,
+        "packages" : [
+            {
+                "name": "EXT JPlayer Core",
+                "id": "ext-jplayer-core",
+                "target": "pkgs/jplayer-core.js",
+                "files": [
+                    {
+                        "name": "JPlayerSWF.js",
+                        "path": "trunk/core/"
+                    },
+                    {
+                        "name": "jplayer.js",
+                        "path": "trunk/ux/"
+                    }
+                ]
+            }
+        ],
+        "builds" : [
+            {
+             "name": "ExT JPlayer - Debug",
+                "target": "ext-jplayer-debug.js",
+                "compress": false,
+                "options": {
+                    "debug": true
+                },
+                "packages": [
+                    "ext-jplayer-core"
+                ]   
+            },
+            {
+             "name": "ExT JPlayer - Debug Min",
+                "target": "ext-jplayer-debug-min.js",
+                "compress": true,
+                "options": {
+                    "debug": true
+                },
+                "packages": [
+                    "ext-jplayer-core"
+                ]   
+            },
+            {
+             "name": "ExT JPlayer",
+                "target": "ext-jplayer.js",
+                "compress": false,
+                "options": {
+                    "debug": false
+                },
+                "packages": [
+                    "ext-jplayer-core"
+                ]   
+            },
+            {
+             "name": "ExT JPlayer",
+                "target": "ext-jplayer-min.js",
+                "compress": true,
+                "options": {
+                    "debug": false
+                },
+                "packages": [
+                    "ext-jplayer-core"
+                ]   
+            }              
+        ]
+}

@@ -1,0 +1,79 @@
+<html>
+<head>
+	<title></title> 
+	<script type="text/javascript" src="../dep/swfobject/swfobject.js"></script>
+	<script type="text/javascript" src="../extjs-4.1.3/ext-all.js"></script>
+	<!-- <script type="text/javascript" charset="utf-8" src="http://cdn.sencha.io/ext-4.1.0-gpl/ext-all.js"></script> -->
+	<script type="text/javascript" src="jplayer.js"></script>
+
+        <link rel="stylesheet" href="extjs-4.1.0/resources/css/ext-all.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="http://cdn.sencha.io/ext-4.1.0-gpl/resources/css/ext-all.css" /> -->
+	<link rel="stylesheet" type="text/css" href="skin/blue.monday/jplayer.blue.monday.css" />
+</head>
+<body>
+<div id="jp_container_1" class="jp-audio">
+	<div class="jp-type-single">
+			<div class="jp-gui jp-interface">
+				<ul class="jp-controls">
+					<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+					<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+					<li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+					<li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+					<li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+					<li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+				</ul>
+				<div class="jp-progress">
+					<div class="jp-seek-bar">
+						<div class="jp-play-bar"></div>
+					</div>
+				</div>
+				<div class="jp-volume-bar">
+					<div class="jp-volume-bar-value"></div>
+				</div>
+				<div class="jp-time-holder">
+					<div class="jp-current-time"></div>
+					<div class="jp-duration"></div>
+
+					<ul class="jp-toggles">
+						<li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
+						<li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="jp-title">
+				<ul>
+					<li>Cro Magnon Man</li>
+				</ul>
+			</div>
+			<div class="jp-no-solution">
+				<span>Update Required</span>
+				To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+			</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+Ext.onReady(function(){
+	var p =  Ext.widget('window', {
+	    title: "It's a tiger!",
+	    layout: 'fit',
+	    width: 300,
+	    height: 300,
+	    renderTo: Ext.getBody(),
+	    x: 20,
+	    y: 20,
+	    resizable: true,
+	    items: {
+	        xtype: 'jplayer',
+	        id: 'jplayerTest',
+	        url: 'Jplayer.swf',
+	    }
+	});
+	console.log(p);
+	p.show();
+});
+</script>
+
+</body>
+</html>

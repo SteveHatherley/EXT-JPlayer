@@ -11,11 +11,31 @@ Ext.define('Ext.ux.JPlayerSWF',{
 	alias: ['widget.jplayerswf'],
 	requires: ['Ext.flash.Component'],
 	url: 'Jplayer.swf',
-	constructor: function(config){
+        media : {},
+        wmode: 'window',
+        flashParams: {
+            allowScriptAccess: 'always'
+        }, 
+	initComponent: function(config){
 			console.log('Inside Ext.ux.JPlayerSWF constructor');
 			console.log('config', config);
+
 		return this.callParent(config);	
-	}
+	},      
+        listeners: {
+            afterRender: function(t){
+                console.log('afterRender t', t);
+                console.log(this);
+                console.log('this.swf',this.swf);
+                console.log(document.getElementById(this.swfId));
+                console.log('swfobject.getObjectById(this.swfId)',swfobject.getObjectById(this.swfId));
+                var test = swfobject.getObjectById(this.swfId);
+                    test.trigger();
+               // document.getElementById(this.swfId).setFile("http://www.jplayer.org/audio/m4a/TSP-01-Cro_magnon_man.m4a");
+                //this.swf.setFile();
+                //this.swf.play();
+            }
+        }
 }, function(){
 	Ext.apply(this.prototype, {
 		config: {
@@ -24,25 +44,25 @@ Ext.define('Ext.ux.JPlayerSWF',{
 	});
 });
 Ext.define('Ext.ux.jplayer', {
-	extend: 'Ext.Component',
-	alias: ['widget.jplayer'],
-	requires: ['Ext.ux.JPlayerSWF'],
-	statics: {
-		instance: Ext.ux.JPlayerSWF
-	},
-	constructor: function(config){
-		console.log('inside ExtJplayer')
+    extend: 'Ext.Component',
+    alias: ['widget.jplayer'],
+    requires: ['Ext.ux.JPlayerSWF'],
+    statics: {
+            instance: Ext.ux.JPlayerSWF
+    },
+    constructor: function(config){
+        console.log('inside ExtJplayer')
         this.initConfig(config);
         console.log('config->', config);
 
         console.log('Ext.supports',Ext.supports);
         if(Ext.supports.AudioTag){
-        	this.requireFlash = false;
+                this.requireFlash = false;
         }
         console.log('this in jplayer',this);
         return this.callParent(config);
-	},
-	pause: function() {
-		// 		element.jPlayer("pause");
-	}
+    },
+    pause: function() {
+            // 		element.jPlayer("pause");
+    }
 });

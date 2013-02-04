@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title></title> 
+	<title>ExtJPlayer Demo</title> 
         <script src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
 	<script type="text/javascript" charset="utf-8" src="http://cdn.sencha.io/ext-4.1.0-gpl/ext-all.js"></script>
 	<script type="text/javascript" src="ext-jplayer-debug.js"></script>
@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="http://www.jplayer.org/2.1.0/skin/blue.monday/jplayer.blue.monday.css" />
 </head>
 <body>
+    <!-- 
 <div id="jp_container_1" class="jp-audio">
 	<div class="jp-type-single">
 			<div class="jp-gui jp-interface">
@@ -39,7 +40,6 @@
 				</div>
 			</div>
 			<div class="jp-title">
-ls
 				<ul>
 					<li>Cro Magnon Man</li>
 				</ul>
@@ -49,7 +49,7 @@ ls
 				To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
 			</div>
 	</div>
-</div>
+</div> -->
 
 
 <script type="text/javascript">
@@ -64,10 +64,13 @@ Ext.onReady(function(){
 	    y: 20,
 	    resizable: true,
 	    items: {
-	        xtype: 'jplayer',
+	        xtype: 'jplayerswf',
 	        id: 'jplayerTest',
 	        url: 'Jplayer.swf'
-	    }
+	    },
+            afterRender: function (fla){
+                console.log('jplayerswf afterRender', fla);
+            }
 	});
 	console.log(p);
 	p.show();

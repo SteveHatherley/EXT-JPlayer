@@ -5,7 +5,7 @@ echo "Executing: sencha build -p ./ext-jplayer-build.jsb3 -v;";
 
 sencha build -p ext-jplayer-build.jsb3 -d builds -v;
 
-cp -v builds/*.js  demo/ext-jplayer/;
+cp -v builds/*.js  demo/;
 
 echo "#############################"
 echo "#  Building Docs via JSDuck #"

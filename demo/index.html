@@ -55,7 +55,7 @@
 <script type="text/javascript">
 Ext.onReady(function(){
 	var p =  Ext.widget('window', {
-	    title: "It's a tiger!",
+	    title: "Go home HTML5, you're drunk",
 	    layout: 'fit',
 	    width: 300,
 	    height: 300,
@@ -64,9 +64,14 @@ Ext.onReady(function(){
 	    y: 20,
 	    resizable: true,
 	    items: {
-	        xtype: 'jplayerswf',
+	        xtype: 'jplayer',
 	        id: 'jplayerTest',
-	        url: 'Jplayer.swf'
+	        url: 'Jplayer.swf',
+	        supplied: "m4a,mp3,ogg",
+	        media: {
+				m4a:"http://www.jplayer.org/audio/m4a/TSP-01-Cro_magnon_man.m4a",
+				oga:"http://www.jplayer.org/audio/ogg/TSP-01-Cro_magnon_man.ogg"	        	
+	        }
 	    },
             afterRender: function (fla){
                 console.log('jplayerswf afterRender', fla);

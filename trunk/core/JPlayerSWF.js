@@ -25,54 +25,52 @@ Ext.define('Ext.ux.JPlayerSWF',{
             this.callParent(config);	
             
 	},
-        afterRender: function(){
-            var me = this,
-                flashParams = Ext.apply({}, me.flashParams), 
-                flashVars = Ext.apply({}, me.flashVars);
+    afterRender: function(){
+        var me = this,
+            flashParams = Ext.apply({}, me.flashParams), 
+            flashVars = Ext.apply({}, me.flashVars);
 
-            me.callParent();
+        me.callParent();
 
-            flashParams = Ext.apply({
-                allowScriptAccess: 'always',
-                bgcolor: me.backgroundColor,
-                wmode: me.wmode
-            }, flashParams);
+        flashParams = Ext.apply({
+            allowScriptAccess: 'always',
+            bgcolor: me.backgroundColor,
+            wmode: me.wmode
+        }, flashParams);
 
-            flashVars = Ext.apply({
-                allowedDomain: document.location.hostname
-            }, flashVars);
+        flashVars = Ext.apply({
+            allowedDomain: document.location.hostname
+        }, flashVars);
 
-            new swfobject.embedSWF(
-                me.url,
-                me.getSwfId(),
-                me.swfWidth,
-                me.swfHeight,
-                me.flashVersion,
-                me.expressInstall ? me.statics.EXPRESS_INSTALL_URL : undefined,
-                flashVars,
-                flashParams,
-                me.flashAttributes,
-                Ext.bind(me.swfCallback, me)
-            );            
-        },
-        listeners: {
-            afterRender: function(t){
-                console.log('afterRender t', t);
-                console.log(this);
-                console.log('this.swf',this.swf);
-                console.log(document.getElementById(this.swfId));
-                console.log('swfobject.getObjectById(this.swfId)',swfobject.getObjectById(this.swfId));
-                var test = swfobject.getObjectById(this.swfId);
-                    //test.trigger();
-               // document.getElementById(this.swfId).setFile("http://www.jplayer.org/audio/m4a/TSP-01-Cro_magnon_man.m4a");
-                //this.swf.setFile();
-                //this.swf.play();
-            }
+        new swfobject.embedSWF(
+            me.url,
+            me.getSwfId(),
+            me.swfWidth,
+            me.swfHeight,
+            me.flashVersion,
+            me.expressInstall ? me.statics.EXPRESS_INSTALL_URL : undefined,
+            flashVars,
+            flashParams,
+            me.flashAttributes,
+            Ext.bind(me.swfCallback, me)
+        );            
+    },
+    listeners: {
+        afterRender: function(t){
+            console.log('afterRender t', t);
+            console.log(this);
+            console.log('this.swf',this.swf);
+            console.log(document.getElementById(this.swfId));
+            console.log('swfobject.getObjectById(this.swfId)',swfobject.getObjectById(this.swfId));
+            var test = swfobject.getObjectById(this.swfId);
+                //test.trigger();
+           // document.getElementById(this.swfId).setFile("http://www.jplayer.org/audio/m4a/TSP-01-Cro_magnon_man.m4a");
+            //this.swf.setFile();
+            //this.swf.play();
         }
+    }
 }, function(){
 	Ext.apply(this.prototype, {
-		config: {
-			LOLTests: true
-		}
-	});
+
+    });
 });
